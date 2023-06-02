@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from home.models import Grty
+from home.models import Cder,Grty
 from django.http import HttpRequest
 from django.utils.translation import ugettext_lazy as _
 from allauth.account import app_settings as allauth_settings
@@ -80,4 +80,10 @@ class GrtySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Grty
+        fields = "__all__"
+
+class CderSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Cder
         fields = "__all__"

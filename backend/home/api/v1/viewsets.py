@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Grty
-from .serializers import GrtySerializer
+from home.models import Cder,Grty
+from .serializers import CderSerializer,GrtySerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -37,3 +37,8 @@ class GrtyViewSet(viewsets.ModelViewSet):
     serializer_class = GrtySerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Grty.objects.all()
+
+class CderViewSet(viewsets.ModelViewSet):
+    serializer_class = CderSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Cder.objects.all()
