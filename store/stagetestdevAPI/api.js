@@ -3,6 +3,12 @@ const stagetestdevAPI = axios.create({
   baseURL: "https://stagetest-dev-88157.botics.co",
   headers: { Accept: "application/json", "Content-Type": "application/json" }
 })
+function api_v1_cder_list(payload) {
+  return stagetestdevAPI.get(`/api/v1/cder/`)
+}
+function api_v1_cder_create(payload) {
+  return stagetestdevAPI.post(`/api/v1/cder/`, payload.data)
+}
 function api_v1_grty_list(payload) {
   return stagetestdevAPI.get(`/api/v1/grty/`)
 }
@@ -31,6 +37,18 @@ function api_docs_schema_retrieve(payload) {
 }
 function rest_auth_login_create(payload) {
   return stagetestdevAPI.post(`/rest-auth/login/`, payload.data)
+}
+function api_v1_cder_retrieve(payload) {
+  return stagetestdevAPI.get(`/api/v1/cder/${payload.id}/`)
+}
+function api_v1_cder_update(payload) {
+  return stagetestdevAPI.put(`/api/v1/cder/${payload.id}/`, payload.data)
+}
+function api_v1_cder_partial_update(payload) {
+  return stagetestdevAPI.patch(`/api/v1/cder/${payload.id}/`, payload.data)
+}
+function api_v1_cder_destroy(payload) {
+  return stagetestdevAPI.delete(`/api/v1/cder/${payload.id}/`)
 }
 function api_v1_grty_retrieve(payload) {
   return stagetestdevAPI.get(`/api/v1/grty/${payload.id}/`)
@@ -72,6 +90,8 @@ function rest_auth_registration_verify_email_create(payload) {
   )
 }
 export const apiService = {
+  api_v1_cder_list,
+  api_v1_cder_create,
   api_v1_grty_list,
   api_v1_grty_create,
   api_v1_login_create,
@@ -81,6 +101,10 @@ export const apiService = {
   rest_auth_user_partial_update,
   api_docs_schema_retrieve,
   rest_auth_login_create,
+  api_v1_cder_retrieve,
+  api_v1_cder_update,
+  api_v1_cder_partial_update,
+  api_v1_cder_destroy,
   api_v1_grty_retrieve,
   api_v1_grty_update,
   api_v1_grty_partial_update,
