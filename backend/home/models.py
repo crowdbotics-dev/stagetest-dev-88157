@@ -6,3 +6,4 @@ class Grty(models.Model):
 class Cder(models.Model):
     'Generated Model'
     bvvdf = models.BigIntegerField()
+    eswer = models.BigIntegerField(null=True,blank=True,)
